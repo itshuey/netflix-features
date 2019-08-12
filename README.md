@@ -1,4 +1,4 @@
-# netflix-features
+# netflix-plus
 a chrome extension that adds extra functionality to netflix!!
 
 #### Features in mind:
@@ -12,3 +12,5 @@ a chrome extension that adds extra functionality to netflix!!
 - Click load unpacked
 - Navigate to project library, select app folder
 - Fire up netflix & enjoy!
+
+See it in action by searching for [expiring titles](https://www.whats-on-netflix.com/leaving-soon/titles-leaving-netflix-in-august-2019/)!
