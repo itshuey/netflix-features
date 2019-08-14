@@ -1,7 +1,8 @@
 var EXP_NETFLIX_URL = 'https://www.whats-on-netflix.com/leaving-soon/';
 var TIMEOUT = 3000;
 
-var expiredMovies = new Map();
+// already instantiated in contentScript
+if (!expiringMovies) var expiringMovies = new Map();
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
