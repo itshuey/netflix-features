@@ -33,8 +33,8 @@ function expirationNode(title=false) {
 
 function expirationDateNode(date) {
 	var span = expirationSpan();
-	var rating = document.createTextNode(date);
-	span.appendChild(date);
+	var expiration = document.createTextNode(date);
+	span.appendChild(expiration);
 	return span;
 }
 
