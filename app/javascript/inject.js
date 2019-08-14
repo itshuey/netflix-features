@@ -106,7 +106,7 @@ function should_append_imdb(rating, id) {
 }
 
 function injectExpiryIndicator(node, title) {
-	if (node && expiredMovies.has(title) && !node.querySelector(".expiration-title")) {
+	if (node && expiringMovies.has(title) && !node.querySelector(".expiration-title")) {
 		node.appendChild(expirationNode(true));
 	};
 }

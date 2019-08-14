@@ -3,7 +3,7 @@ chrome.runtime.sendMessage({type: 'showPageAction'});
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
 // To avoid throwing an error!
-if (!expiredMovies) var expiredMovies = new Map();
+if (!expiringMovies) var expiringMovies = new Map();
 
 var observerOptions = {
 	childList: true,
@@ -12,7 +12,7 @@ var observerOptions = {
 }
 
 function expCheck(title) {
-	return expiredMovies.has(title) ? expiredMovies.get(title) : null;
+	return expiringMovies.has(title) ? expiringMovies.get(title) : null;
 }
 
 var jawBoneContentObserver = new MutationObserver(function(mutations, observer) {
