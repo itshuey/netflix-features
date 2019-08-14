@@ -31,10 +31,10 @@ function expirationNode(title=false) {
 	return span;
 }
 
-function expDateNode(rating) {
+function expirationDateNode(date) {
 	var span = expirationSpan();
-	var rating = document.createTextNode(rating);
-	span.appendChild(rating);
+	var expiration = document.createTextNode(date);
+	span.appendChild(expiration);
 	return span;
 }
 
@@ -119,7 +119,6 @@ function injectRatings(node, ratings, exp) {
 
 	if (node) {
 		if (!node.querySelector(".imdbRating")) {
-
 			if (should_append_imdb(imdbRating, imdbId)) {
 				node.appendChild(imdbLogoNode(imdbId));
 				node.appendChild(imdbRatingNode(imdbId, imdbRating));
@@ -138,7 +137,7 @@ function injectRatings(node, ratings, exp) {
 		}
 		if (exp && !node.querySelector(".expiration")){
 			node.appendChild(expirationNode());
-			node.appendChild(expDateNode("Expiring " + exp));
+			node.appendChild(expirationDateNode(exp));
 		}
 	}
 }

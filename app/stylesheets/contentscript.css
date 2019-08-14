@@ -8,7 +8,7 @@
 .bob-card .rtRating,
 .bob-card .metacriticRating
 .bob-card .expiration {
-	margin-right: .333vw !important;
+	/* margin-right: .333vw !important; */
 	display: inline-block !important;
 	line-height: 2 !important;
 	font-weight: 700 !important;
