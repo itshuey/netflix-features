@@ -8,8 +8,23 @@ var observerOptions = {
 	attributes: true,
 }
 
-function expCheck(title) {
-	return expiredMovies.has(title) ? expiredMovies.get(title) : null;
+function expCheck(title, style) {
+	if expiredMovies.has(title){
+		var date = expiredMovies.get(title);
+
+		if (style == "short") {
+			var space = date.indexOf(' ');
+			var month = monthNames.indexOf(date.substring(0, space));
+			var day = date.match(/\d+/g)[0];
+			return month + "/" + day;
+
+		} else if (style == "long") {
+			return "Expiring " + date;
+		} else {
+			return date;
+		}
+	}
+	return null;
 }
 
 var jawBoneContentObserver = new MutationObserver(function(mutations, observer) {
@@ -21,7 +36,7 @@ var jawBoneContentObserver = new MutationObserver(function(mutations, observer) 
 			var titleNode = headerNode.querySelector(".title");
 			var title = titleNode.querySelector("img") ? titleNode.querySelector("img").alt : titleNode.textContent;
 			if (title) {
-				var exp = expCheck(title);
+				var exp = expCheck(title, "long");
 				getRatings(title, null, null, extractYear(node), function(ratings) {
 					injectRatings(node.querySelector(".meta"), ratings, exp);
 				});
@@ -37,7 +52,7 @@ var titleCardObserver = new MutationObserver(function(mutations, observer) {
 		var titleNode = node.querySelector(".fallback-text");
 		var injectDestination = node.querySelector(".meta");
 		if (titleNode && (title = titleNode.textContent) && injectDestination) {
-			var exp = expCheck(title);
+			var exp = expCheck(title, "short");
 			getRatings(title, null, null, extractYear(node), function(ratings) {
 				injectRatings(injectDestination, ratings, exp);
 			});
@@ -120,7 +135,7 @@ function addFeaturedRatings(node) {
 			} else {
 				title = titleNode.textContent;
 			}
-			var exp = expCheck(title);
+			var exp = expCheck(title, "long");
 			getRatings(title, null, null, extractYear(jawBoneNode), function(ratings) {
 				injectRatings(node.querySelector(".meta"), ratings, exp);
 			});
@@ -144,7 +159,7 @@ function addPlayerRatings(titleContainerNode) {
 			return true;
 		}
 	});
-	var exp = expCheck(titleNode.textContent);
+	var exp = expCheck(titleNode.textContent, "long");
 	getRatings(titleNode.textContent, episodeInfo["season"], episodeInfo["episode"], null, function(ratings) {
 		injectRatings(titleNode.parentNode, ratings, exp);
 	});

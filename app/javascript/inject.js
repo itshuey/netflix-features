@@ -137,7 +137,7 @@ function injectRatings(node, ratings, exp) {
 		}
 		if (exp && !node.querySelector(".expiration")){
 			node.appendChild(expirationNode());
-			node.appendChild(expirationDateNode("Expiring " + exp));
+			node.appendChild(expirationDateNode(exp));
 		}
 	}
 }
