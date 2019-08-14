@@ -12,7 +12,7 @@ var observerOptions = {
 }
 
 function expCheck(title, style) {
-	if expiringMovies.has(title){
+	if (expiringMovies.has(title)){
 		var date = expiringMovies.get(title);
 
 		if (style == "short") {
@@ -22,7 +22,7 @@ function expCheck(title, style) {
 			return month + "/" + day;
 
 		} else if (style == "long") {
-			return "Expiring " + date;
+			return "Expires " + date;
 		} else {
 			return date;
 		}
