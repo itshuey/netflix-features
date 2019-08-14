@@ -23,8 +23,8 @@ function refreshTitles(){
 for (val in [0, 1]){
   chrome.runtime.sendMessage({contentScriptQuery: "queryExpDates", queryDate: getQueryUrl(val)},
     function(response) {
-      expiredMovies = new Map(function*() {
-        yield* expiredMovies; yield* parseResponse(response);
+      expiringMovies = new Map(function*() {
+        yield* expiringMovies; yield* parseResponse(response);
       }());
       refreshTitles();
   });

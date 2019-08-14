@@ -2,6 +2,9 @@ chrome.runtime.sendMessage({type: 'showPageAction'});
 
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
+// To avoid throwing an error!
+if (!expiringMovies) var expiringMovies = new Map();
+
 var observerOptions = {
 	childList: true,
 	subtree: true,
@@ -9,8 +12,8 @@ var observerOptions = {
 }
 
 function expCheck(title, style) {
-	if expiredMovies.has(title){
-		var date = expiredMovies.get(title);
+	if expiringMovies.has(title){
+		var date = expiringMovies.get(title);
 
 		if (style == "short") {
 			var space = date.indexOf(' ');
