@@ -2,6 +2,9 @@ chrome.runtime.sendMessage({type: 'showPageAction'});
 
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
+// To avoid throwing an error!
+if (!expiredMovies) var expiredMovies = new Map();
+
 var observerOptions = {
 	childList: true,
 	subtree: true,
