@@ -1,5 +1,6 @@
 # netflix-plus
-a chrome extension that adds extra functionality to netflix!!
+a chrome extension that adds extra functionality to netflix!!  
+check out a [current demo](https://www.youtube.com/embed/JLpCABzAXuU) to see what it can do.
 
 #### Features in mind:
 - [x] Add reviews (by [tanner-rutgers](https://github.com/tanner-rutgers/RateFlix))
