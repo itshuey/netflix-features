@@ -17,7 +17,7 @@ function expCheck(title, style) {
 
 		if (style == "short") {
 			var space = date.indexOf(' ');
-			var month = monthNames.indexOf(date.substring(0, space));
+			var month = monthNames.indexOf(date.substring(0, space)) + 1;
 			var day = date.match(/\d+/g)[0];
 			return month + "/" + day;
 
