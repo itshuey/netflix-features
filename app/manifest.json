@@ -50,7 +50,8 @@
     "https://*.netflix.com/*",
     "https://*.whats-on-netflix.com/*",
     "https://ajax.googleapis.com/",
-    "tabs"
+    "tabs",
+    "storage"
   ],
 
   "web_accessible_resources": [
