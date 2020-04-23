@@ -21,3 +21,14 @@ a:visited {
 	text-decoration: none;
 	outline: none;
 }
+
+table {
+	color: #e5e5e5;
+}
+
+#date {
+	font-weight: bold;
+	color: yellow;
+	text-align: right;
+	width: 40px;
+}
