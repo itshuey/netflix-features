@@ -1,32 +1,36 @@
 body {
 	background: #141414;
-	min-width: 300px;
+	min-width: 250px;
 	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 	margin-bottom: 16px;
+	text-align: center;
+}
+
+h3, p, table {
+	color: #e5e5e5;
 }
 
 h1 {
 	color: #e50914;
+	margin-bottom: 0px;
 }
 
-h3,
-p {
-	color: #e5e5e5;
+h3 {
+	margin-top: 0px;
 }
 
-a,
-a:link,
-a:visited {
+table  {
+	width: 100%;
+	text-align: left;
+}
+
+a, a:link, a:visited {
 	color: #F5DE50;
 	text-decoration: none;
 	outline: none;
 }
 
-table {
-	color: #e5e5e5;
-}
-
-#date {
+.date {
 	font-weight: bold;
 	color: yellow;
 	text-align: right;

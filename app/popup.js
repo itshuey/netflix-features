@@ -31,7 +31,7 @@ function createTable(info) {
 
     cell1.innerHTML = item[0];
     cell2.innerHTML = exp.month + "/" + exp.day;
-    cell2.id = "date";
+    cell2.className = "date";
   }
 }
 
