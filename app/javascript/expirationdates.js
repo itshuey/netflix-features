@@ -6,12 +6,13 @@ if (!expiringMovies) var expiringMovies = new Map();
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 
-function getQueryUrl(skip=0){
+function getQueryUrl(skip=0, type="titles"){
   var today = new Date();
   var year = today.getFullYear();
   var month = monthNames[(today.getMonth()+parseInt(skip))%12];
 
-  var query_url = EXP_NETFLIX_URL + 'titles-leaving-netflix-in-' + month + '-' + year + '/';
+  var query_url = EXP_NETFLIX_URL + type + '-leaving-netflix-in-' + month + '-' + year + '/';
+  console.log(query_url);
   return query_url;
 }
 
@@ -27,13 +28,15 @@ function updateLocalStorage(data) {
   });
 }
 
-for (val in [0, 1]){
-  chrome.runtime.sendMessage({contentScriptQuery: "queryExpDates", queryURL: getQueryUrl(val)},
-    function(response) {
-      expiringMovies = new Map(function*() {
-        yield* expiringMovies; yield* parseResponse(response);
-      }());
-      updateLocalStorage(expiringMovies);
-      refreshTitles();
-  });
+for (skip of [0, 1]){
+  for (type of ["titles", "movies-series"]) {
+    chrome.runtime.sendMessage({contentScriptQuery: "queryExpDates", queryURL: getQueryUrl(skip, type)},
+      function(response) {
+        expiringMovies = new Map(function*() {
+          yield* expiringMovies; yield* parseResponse(response);
+        }());
+        updateLocalStorage(expiringMovies);
+        refreshTitles();
+    });
+  }
 }
