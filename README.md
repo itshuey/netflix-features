@@ -5,6 +5,7 @@ check out a [current demo](https://www.youtube.com/embed/JLpCABzAXuU) to see wha
 #### Features in mind:
 - [x] Add reviews (by [tanner-rutgers](https://github.com/tanner-rutgers/RateFlix))
 - [x] Expiration indicator on content to be removed 
+- [x] List expiring titles in extension popup
 - [ ] Customization of My List (grouping, formatting)
 
 #### To use:
